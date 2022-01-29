@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    /* /* justify-content: center; */
+    align-items: center; */
+}
+
+.menu {
+    margin: 20px 0 20px 0;
+}
+
+.grid {
+    display: flex;
+    width: 500px;
+    height: 500px;
+    flex-wrap: wrap;
+    border: 1px black solid;
+    background-color: rgb(218, 218, 218);
+}
+
+.square {
+    display: flex;
+    flex-direction: column;
+    flex:1;
+}
+
+.squareInside {
+    box-sizing: border-box;
+    border: 1px black solid;
+    flex: 1;
+}
+
+.colorBlue {
+    background-color:rgb(95, 95, 255);
+}
