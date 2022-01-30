@@ -1,9 +1,15 @@
 let number = 0;
+const container = document.querySelector('.grid');    
 
 function numberSquare (number) {
+    let child = container.lastElementChild; 
+    while (child) {
+        container.removeChild(child);
+        child = container.lastElementChild;
+    }
+
     for (let i = 0; i < number; i++) {
         const i = document.createElement('div')
-        const container = document.querySelector('.grid');        
         container.appendChild(i);
         i.classList.add('square');
 
@@ -19,19 +25,29 @@ function numberSquare (number) {
         squareHov.forEach((square) => {
         //and for each one we add a 'mouseenter' listener
             square.addEventListener("mouseover", (e) => { 
-                e.target.style.background = 'blue';
-                console.log(e)
+                e.target.style.background = 'gold';
+                // console.log(e)
             });
         }); // works with e or also just replace "e.target" by "square"
-    }
+}
 }
 
+const btnEfface = document.querySelector('.eraseButton');
+btnEfface.addEventListener("click", erase);
+function erase(e) {
+  let child = container.lastElementChild; 
+  while (child) {
+      container.removeChild(child);
+      child = container.lastElementChild;
+  }
+}
 
 const btn = document.querySelector('.resetButton');
 btn.addEventListener("click", askNumber);
 function askNumber(e) {
-    number = prompt('Please enter a number',"type here");
-    if (number <= 100 & number > 0) {
+
+    number = prompt('Please enter a positive number below 100','Type here');
+    if (number <= 100 & number >= 0) {
         return numberSquare(number);
     }   
     else {
@@ -39,10 +55,5 @@ function askNumber(e) {
     }
 }
 
-const btnEfface = document.querySelector('.eraseButton');
-btnEfface.addEventListener("click", erase);
-function erase(e) {
-    return numberSquare(0) 
-    console.log(e)
-}
+
 
